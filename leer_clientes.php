@@ -35,18 +35,30 @@
 <body>
 
 <?php
-// Datos de conexión
-$servidor = "mysql_container";
-$usuario = "root";
-$clave = "johan123";
-$base_datos = "gestion_cliente";
+
+// Detectar si está en Docker o Local
+if ($_SERVER['HTTP_HOST'] == "localhost") {
+    $servidor = "localhost"; // Localhost
+    $usuario = "root";
+    $clave = "johan123"; // Normalmente en local está vacío
+    $base_datos = "gestion_cliente";
+    $puerto = 3306;
+} else {
+    $servidor = "mysql_container"; // Docker
+    $usuario = "root";
+    $clave = "johan123";
+    $base_datos = "gestion_cliente";
+    $puerto = 3306;
+}
 
 // Crear la conexión
-$conn = new mysqli($servidor, $usuario, $clave, $base_datos, 3306);
+$conn = new mysqli($servidor, $usuario, $clave, $base_datos, $puerto);
 
 // Verificar la conexión
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
+} else {
+    echo "Conexión exitosa!";
 }
 
 // Consulta SQL para obtener datos

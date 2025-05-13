@@ -1,9 +1,18 @@
 <?php
 // Datos de conexión
-$servidor = "mysql_container";
-$usuario = "root";
-$clave = "johan123";
-$base_datos = "gestion_cliente";
+if ($_SERVER["HTTP_HOST"] == "localhost") {
+    $servidor = "localhost";
+    $usuario = "root";
+    $clave = "johan123";
+    $base_datos = "gestion_cliente";
+    $puerto = 3306;
+} else {
+    $servidor = "mysql_container";
+    $usuario = "root";
+    $clave = "johan123";
+    $base_datos = "gestion_cliente";
+    $puerto = 3306;
+}
 
 // Crear la conexión
 $conn = new mysqli($servidor, $usuario, $clave, $base_datos, 3306);
