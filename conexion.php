@@ -5,10 +5,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Datos de conexión
-$servidor = "localhost";
+$servidor = "mysql_container";
 $usuario = "root";
 $clave = "johan123";
-$base_datos = "mysql";
+$base_datos = "gestion_cliente";
 
 // Crear la conexión
 $mysqli = new mysqli($servidor, $usuario, $clave, $base_datos);

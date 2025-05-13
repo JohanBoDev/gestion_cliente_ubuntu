@@ -1,12 +1,12 @@
 <?php
 // Datos de conexión
-$servidor = "localhost";
+$servidor = "mysql_container";
 $usuario = "root";
 $clave = "johan123";
 $base_datos = "gestion_cliente";
 
 // Crear la conexión
-$conn = new mysqli($servidor, $usuario, $clave, $base_datos);
+$conn = new mysqli($servidor, $usuario, $clave, $base_datos, 3306);
 
 // Verificar la conexión
 if ($conn->connect_error) {
